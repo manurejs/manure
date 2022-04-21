@@ -36,11 +36,15 @@ unsub = onSnapshot(
 )
 
 listView = (items) => ListView(
-    children: items.map((item) => ListTile(
+    children: items.map((item, i) => ListTile(
         title: Text(item.text),
         trailing: IconButton(
             icon: Icon(Icons.edit),
-            onPressed: ...
+            onPressed: () => inputTextDialog().then((text) => ()
+                _items = [...items]
+                _items[i].text = text
+                items = _items
+            })
         ),
     ))
 )
@@ -70,6 +74,8 @@ MaterialApp(
         ),
     floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.new),
-        onPressed: ...
+        onPressed: () => inputTextDialog().then((text) => (
+            items = [...items, {text, isComplete: false}]
+        ))
     ),
 )
