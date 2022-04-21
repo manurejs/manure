@@ -1,3 +1,0 @@
-{ Text } = "@manure/material"
-
-result = Text('Hello World!')
