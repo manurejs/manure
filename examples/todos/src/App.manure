@@ -41,7 +41,7 @@ listView = (items) => ListView(
         title: Text(item.text),
         trailing: IconButton(
             icon: Icon(Icons.edit),
-            onPressed: () => inputTextDialog().then((text) => ()
+            onPressed: () => inputTextDialog(text).then((text) => ()
                 _items = [...items]
                 _items[i].text = text
                 items = _items
