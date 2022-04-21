@@ -1,7 +1,7 @@
 # Manure transpiler written in rust
 ## Apr 30, 2022
 * module import
-* all javascript operators included spread operator
+* all javascript operators included spread operator and new operator
 * arrow function
 * function invoke
 
