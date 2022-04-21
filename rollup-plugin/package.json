@@ -1,0 +1,25 @@
+{
+  "name": "@manure/rollup-plugin",
+  "version": "1.0.0",
+  "description": "ManureJS Plugin for rollup.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manurejs/manure.git"
+  },
+  "keywords": [
+    "manure",
+    "plugin",
+    "rollup",
+    "bundle"
+  ],
+  "author": "Chien Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manurejs/manure/issues"
+  },
+  "homepage": "https://manurejs.github.io"
+}
