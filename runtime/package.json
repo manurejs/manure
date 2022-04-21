@@ -1,0 +1,24 @@
+{
+  "name": "@manure/runtime",
+  "version": "1.0.0",
+  "description": "ManureJS runtime for Browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manurejs/manure.git"
+  },
+  "keywords": [
+    "manure",
+    "reactive",
+    "runtime"
+  ],
+  "author": "Chien Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manurejs/manure/issues"
+  },
+  "homepage": "https://github.com/manurejs/manure#readme"
+}

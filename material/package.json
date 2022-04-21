@@ -1,0 +1,25 @@
+{
+  "name": "@manure/material",
+  "version": "1.0.0",
+  "description": "ManureJS Material Design Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manurejs/manure.git"
+  },
+  "keywords": [
+    "manure",
+    "material",
+    "ui",
+    "design"
+  ],
+  "author": "Chien Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manurejs/manure/issues"
+  },
+  "homepage": "https://manurejs.github.io"
+}
