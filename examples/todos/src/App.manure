@@ -12,6 +12,7 @@
     Icons,
 } = "@manure/material"
 
+'Single quote indicate string'
 'Double quotes indicate module import'
 { initializeApp } = "firebase/app"
 { onSnapshot, collection, getFirestore } = "firebase/firestore"
@@ -24,11 +25,14 @@ items = []
 todos = items.filter((item) => !item.isComplete)
 dones = items.filter((item) => item.isComplete)
 
-'Expression results not required by the template are evaluated on mount
-their results are invoked on destroy'
+'Expression results not required by the template are evaluated on mount and their results are invoked on destroy'
 unsub = onSnapshot(
-    collection(getFirestore(initializeApp(firebaseConfig)), 'items'),
-    (snapshots) => (items = snapshots.docs.map((doc) => doc.data()))
+    collection(
+      getFirestore(initializeApp(firebaseConfig)), 'items'),
+      (snapshots) => (
+        items = snapshots.docs.map((doc) => doc.data()
+      )
+    )
 )
 
 listView = (items) => ListView(
@@ -36,14 +40,13 @@ listView = (items) => ListView(
         title: Text(item.text),
         trailing: IconButton(
             icon: Icon(Icons.edit),
-            onPressed: () (items = [...])
+            onPressed: ...
         ),
     ))
 )
 
-'Result of the last expression is detected as the template'
+'The last expression return the template'
 MaterialApp(
-    'Single quote indicate string'
     title: 'Flette Todo List example',
     home: Scaffold(
         body: TabController(
@@ -67,6 +70,6 @@ MaterialApp(
         ),
     floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.new),
-        onPressed: () => (items = [...])
+        onPressed: ...
     ),
 )
