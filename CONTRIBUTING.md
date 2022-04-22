@@ -37,7 +37,7 @@ feat(compiler, examples): support array
 
 ### Scope
 
-`.vscode`, `compiler`, `examples`, `rollup-plugin`, `material`, `runtime`, `all`
+`.vscode`, `compiler`, `examples`, `rollup-plugin`, `material`, `runtime`.
 
 ### Message: No conventions, emoticon is appreciated!
 
