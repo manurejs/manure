@@ -4,6 +4,8 @@
 * all javascript operators included spread operator and new operator
 * arrow function
 * function invoke
+* two-way binding
+* Template literals
 
 ## May 15, 2022
 * language server
