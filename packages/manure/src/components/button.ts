@@ -9,16 +9,14 @@ class Button extends StatelessWidget {
     this.onClick = onClick;
   }
   style(): string {
-    return `
-      padding: 5pt;
-    `;
+    return "padding: 5pt;";
   }
   script(): string {
     if (this.onClick) {
       return `
-        document.getElementById("${this.getId()}").onclick = () => {
-          
-        }
+document.getElementById("${this.getId()}").onclick = () => {
+  alert("Yay!");
+}
       `;
     }
     return "";

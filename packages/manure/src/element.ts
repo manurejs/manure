@@ -74,8 +74,8 @@ class TheElement {
         style = `#${id} { ${css} }`,
         rendered = element.render(id),
         html = rendered.html,
-        styles = [rendered.styles, style].join("\n"),
-        scripts = [rendered.scripts, script].join("\n");
+        styles = [rendered.styles, style.trim()].join("\n"),
+        scripts = [rendered.scripts, script.trim()].join("\n");
       return { html, styles, scripts };
     }
     // @ts-ignore
