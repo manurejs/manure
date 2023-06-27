@@ -1,5 +1,6 @@
 import { App } from "./src/components/app";
-import { render } from "./src/render";
-import { StatelessWidget, Text, Widget } from "./src/widget";
+import { Text } from "./src/components/text";
+import { post, render } from "./src/framework";
+import { StatelessWidget, Widget } from "./src/widget";
 
-export { App, Text, Widget, render, StatelessWidget };
+export { App, StatelessWidget, Text, Widget, post, render };

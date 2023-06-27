@@ -1,15 +1,6 @@
-import { TheElement } from "../element";
-import { Widget } from "../widget";
+import { RawText, SingleChildTag, StatelessWidget, Widget } from "../widget";
 
-class TextElement extends TheElement {
-  render(): string {
-    const widget = this.widget as Text,
-      text = widget.getText();
-    return text;
-  }
-}
-
-class Text extends Widget {
+class Text extends StatelessWidget {
   private text: string;
   public getText() {
     return this.text;
@@ -18,10 +9,9 @@ class Text extends Widget {
     super();
     this.text = text;
   }
-  createElement(): TheElement {
-    return new TextElement(this);
-  }
   build(): Widget {
-    throw new Error("Method not implemented.");
+    return new SingleChildTag("p", { child: new RawText(this.text) });
   }
 }
+
+export { Text };

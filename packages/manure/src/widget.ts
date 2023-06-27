@@ -13,10 +13,10 @@ class Tag extends Widget {
     return this.name;
   }
   public attributes?: Widget[];
-  constructor(name: string, { attributes }: { attributes: Widget[] }) {
+  constructor(name: string, options?: { attributes: Widget[] }) {
     super();
     this.name = name;
-    this.attributes = attributes;
+    this.attributes = options?.attributes;
   }
 }
 
@@ -60,7 +60,7 @@ class MultiChildTag extends Tag {
   }
 }
 
-class Text extends Widget {
+class RawText extends Widget {
   private text: string;
   public getText() {
     return this.text;
@@ -106,9 +106,9 @@ export {
   Attribute,
   MultiChildTag,
   Multiline,
+  RawText,
   SingleChildTag,
   StatelessWidget,
   Tag,
-  Text,
   Widget,
 };

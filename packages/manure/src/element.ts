@@ -2,10 +2,10 @@ import {
   Attribute,
   MultiChildTag,
   Multiline,
+  RawText,
   SingleChildTag,
   StatelessWidget,
   Tag,
-  Text,
   Widget,
 } from "./widget";
 
@@ -16,7 +16,7 @@ class TheElement {
   }
   render(): string {
     const widget = this.widget;
-    if (widget instanceof Text) {
+    if (widget instanceof RawText) {
       const text = widget.getText();
       return text;
     } else if (widget instanceof Multiline) {

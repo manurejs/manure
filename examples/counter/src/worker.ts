@@ -1,4 +1,4 @@
-import { render } from 'manure';
+import { post, render } from 'manure';
 import { CounterApp } from './lib/app';
 
 export interface Env {}
@@ -14,7 +14,8 @@ export default <ExportedHandler<Env>>{
 				},
 			});
 		} else if (request.method === 'POST') {
-			request.json();
+			const json = await request.json(),
+				body = post(app, json);
 		}
 	},
 };

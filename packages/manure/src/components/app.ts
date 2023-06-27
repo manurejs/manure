@@ -2,10 +2,10 @@ import {
   Attribute,
   MultiChildTag,
   Multiline,
+  RawText,
   SingleChildTag,
   StatelessWidget,
   Tag,
-  Text,
   Widget,
 } from "../widget";
 
@@ -18,27 +18,29 @@ class App extends StatelessWidget {
   build(): Widget {
     return new Multiline({
       children: [
-        new Text("<!DOCTYPE html>"),
+        new RawText("<!DOCTYPE html>"),
         new MultiChildTag("html", {
-          attributes: [new Attribute("lang", { widget: new Text("en") })],
+          attributes: [new Attribute("lang", { widget: new RawText("en") })],
           children: [
             new MultiChildTag("head", {
               children: [
                 new Tag("meta", {
                   attributes: [
-                    new Attribute("charset", { widget: new Text("UTF-8") }),
+                    new Attribute("charset", { widget: new RawText("UTF-8") }),
                   ],
                 }),
                 new Tag("meta", {
                   attributes: [
-                    new Attribute("name", { widget: new Text("viewport") }),
+                    new Attribute("name", { widget: new RawText("viewport") }),
                     new Attribute("content", {
-                      widget: new Text("width=device-width, initial-scale=1.0"),
+                      widget: new RawText(
+                        "width=device-width, initial-scale=1.0"
+                      ),
                     }),
                   ],
                 }),
                 new SingleChildTag("title", {
-                  child: new Text("Manure Counter"),
+                  child: new RawText("Manure Counter"),
                 }),
               ],
             }),
