@@ -1,3 +1,5 @@
+import { Widget } from 'manure';
+
 export interface Env {}
 
 export default <ExportedHandler<Env>>{
