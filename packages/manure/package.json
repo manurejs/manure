@@ -1,0 +1,24 @@
+{
+    "name": "manure",
+    "description": "ManureJS",
+    "scripts": {
+        "watch": "esbuild src/index.ts --bundle --watch --outfile=build/index.js",
+        "test": "npm run test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/manurejs/manure.git"
+    },
+    "keywords": [
+        "manure",
+        "reactive"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/manurejs/manure/issues"
+    },
+    "homepage": "https://github.com/manurejs/manure#readme",
+    "devDependencies": {
+        "esbuild": "^0.18.10"
+    }
+}
