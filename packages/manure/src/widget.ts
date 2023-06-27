@@ -5,7 +5,6 @@ abstract class Widget {
   createElement() {
     return new TheElement(this);
   }
-  abstract build(): Widget;
 }
 
 class Tag extends Widget {
@@ -18,9 +17,6 @@ class Tag extends Widget {
     super();
     this.name = name;
     this.attributes = attributes;
-  }
-  build(): Widget {
-    throw new Error("Method not implemented.");
   }
 }
 
@@ -42,9 +38,6 @@ class SingleChildTag extends Tag {
     super(name, { attributes });
     this.child = child;
   }
-  build(): Widget {
-    throw new Error("Method not implemented.");
-  }
 }
 
 class MultiChildTag extends Tag {
@@ -65,9 +58,6 @@ class MultiChildTag extends Tag {
     super(name, { attributes });
     this.children = children;
   }
-  build(): Widget {
-    throw new Error("Method not implemented.");
-  }
 }
 
 class Text extends Widget {
@@ -78,9 +68,6 @@ class Text extends Widget {
   constructor(text: string) {
     super();
     this.text = text;
-  }
-  build(): Widget {
-    throw new Error("Method not implemented.");
   }
 }
 
@@ -98,9 +85,6 @@ class Attribute extends Widget {
   public getValue() {
     return this.widget;
   }
-  build(): Widget {
-    throw new Error("Method not implemented.");
-  }
 }
 
 class Multiline extends Widget {
@@ -112,16 +96,18 @@ class Multiline extends Widget {
     super();
     this.children = children;
   }
-  build(): Widget {
-    throw new Error("Method not implemented.");
-  }
+}
+
+abstract class StatelessWidget extends Widget {
+  abstract build(): Widget;
 }
 
 export {
   Attribute,
-  Multiline,
   MultiChildTag,
+  Multiline,
   SingleChildTag,
+  StatelessWidget,
   Tag,
   Text,
   Widget,

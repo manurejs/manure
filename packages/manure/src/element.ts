@@ -3,6 +3,7 @@ import {
   MultiChildTag,
   Multiline,
   SingleChildTag,
+  StatelessWidget,
   Tag,
   Text,
   Widget,
@@ -66,6 +67,11 @@ class TheElement {
         attributeTexts = attributeElements.map((element) => element.render()),
         attributeText = attributeTexts.join(" "),
         result = `<${name} ${attributeText}>`;
+      return result;
+    } else if (widget instanceof StatelessWidget) {
+      const builtWidget = widget.build(),
+        element = builtWidget.createElement(),
+        result = element.render();
       return result;
     }
     // @ts-ignore

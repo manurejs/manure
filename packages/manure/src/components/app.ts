@@ -9,6 +9,11 @@ import {
 } from "../widget";
 
 class App extends Widget {
+  private home: Widget;
+  constructor({ home }: { home: Widget }) {
+    super();
+    this.home = home;
+  }
   build(): Widget {
     return new Multiline({
       children: [
@@ -36,9 +41,7 @@ class App extends Widget {
                 }),
               ],
             }),
-            new MultiChildTag("body", {
-              children: [new Text("Hello World!")],
-            }),
+            new SingleChildTag("body", { child: this.home }),
           ],
         }),
       ],
