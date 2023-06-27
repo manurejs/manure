@@ -20,6 +20,7 @@ class MainScreen extends StatelessWidget {
           children: [
             new Button({
               child: new Text('Click me!'),
+              onClick: () => {},
             }),
           ],
         }),

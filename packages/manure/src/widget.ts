@@ -2,6 +2,13 @@ import { TheElement } from "./element";
 import { IdManager } from "./id";
 
 abstract class Widget {
+  private id: string;
+  public getId() {
+    if (!this.id) {
+      this.id = IdManager.getInstance().getId(this.getRuntimeType());
+    }
+    return this.id;
+  }
   Widget() {}
   createElement() {
     return new TheElement(this);
@@ -9,9 +16,6 @@ abstract class Widget {
   getRuntimeType() {
     //@ts-ignore
     return this.constructor.name.toLowerCase();
-  }
-  getId() {
-    return IdManager.getInstance().getId(this.getRuntimeType());
   }
 }
 
@@ -116,6 +120,9 @@ class Multiline extends Widget {
 
 abstract class StatelessWidget extends Widget {
   style(): string {
+    return "";
+  }
+  script(): string {
     return "";
   }
   abstract build(): Widget;
