@@ -1,4 +1,5 @@
 import { TheElement } from "./element";
+import { IdManager } from "./id";
 
 abstract class Widget {
   Widget() {}
@@ -10,7 +11,7 @@ abstract class Widget {
     return this.constructor.name.toLowerCase();
   }
   getId() {
-    return `${this.getRuntimeType()}-0`;
+    return IdManager.getInstance().getId(this.getRuntimeType());
   }
 }
 

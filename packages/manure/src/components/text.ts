@@ -10,7 +10,7 @@ class Text extends StatelessWidget {
     this.text = text;
   }
   build(): Widget {
-    return new SingleChildTag("p", { child: new RawText(this.text) });
+    return new SingleChildTag("span", { child: new RawText(this.text) });
   }
 }
 
