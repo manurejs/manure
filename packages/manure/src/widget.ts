@@ -5,6 +5,13 @@ abstract class Widget {
   createElement() {
     return new TheElement(this);
   }
+  getRuntimeType() {
+    //@ts-ignore
+    return this.constructor.name.toLowerCase();
+  }
+  getId() {
+    return `${this.getRuntimeType()}-0`;
+  }
 }
 
 class Tag extends Widget {
@@ -12,11 +19,17 @@ class Tag extends Widget {
   public getName() {
     return this.name;
   }
-  public attributes?: Widget[];
-  constructor(name: string, options?: { attributes: Widget[] }) {
+  public attributes?: Attribute[];
+  constructor(name: string, options?: { attributes: Attribute[] }) {
     super();
     this.name = name;
     this.attributes = options?.attributes;
+  }
+  public attributesToString() {
+    const attributes = this.attributes ?? [],
+      attributeTexts = attributes.map((attribute) => attribute.toString()),
+      attributeText = attributeTexts.join(" ");
+    return attributeText;
   }
 }
 
@@ -51,7 +64,7 @@ class MultiChildTag extends Tag {
       children,
       attributes,
     }: {
-      attributes?: Widget[];
+      attributes?: Attribute[];
       children: Widget[];
     }
   ) {
@@ -71,19 +84,21 @@ class RawText extends Widget {
   }
 }
 
-class Attribute extends Widget {
+class Attribute {
   private name: string;
-  private widget: Widget;
-  constructor(name: string, value: { widget: Widget }) {
-    super();
+  private value: string;
+  constructor(name: string, value: string) {
     this.name = name;
-    this.widget = value.widget;
+    this.value = value;
   }
   public getName() {
     return this.name;
   }
   public getValue() {
-    return this.widget;
+    return this.value;
+  }
+  public toString() {
+    return `${this.name}-${this.value}`;
   }
 }
 
@@ -99,6 +114,9 @@ class Multiline extends Widget {
 }
 
 abstract class StatelessWidget extends Widget {
+  style(): string {
+    return "";
+  }
   abstract build(): Widget;
 }
 

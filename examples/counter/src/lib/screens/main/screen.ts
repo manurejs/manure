@@ -1,8 +1,10 @@
-import { StatelessWidget, Text, Widget } from 'manure';
+import { Column, StatelessWidget, Text, Widget } from 'manure';
 
 class MainScreen extends StatelessWidget {
 	build(): Widget {
-		return new Text('Hello World!');
+		return new Column({
+			children: [new Text('Hello World!'), new Text('GG')],
+		});
 	}
 }
 
