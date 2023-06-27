@@ -17,6 +17,14 @@ abstract class Widget {
     //@ts-ignore
     return this.constructor.name.toLowerCase();
   }
+  post(formData: FormData) {
+    const id = formData.get("id").toString();
+    if (id === this.getId()) {
+      const action = formData.get("action").toString();
+      this.handle(action);
+    }
+  }
+  handle(_action: string) {}
 }
 
 class Tag extends Widget {
@@ -103,7 +111,7 @@ class Attribute {
     return this.value;
   }
   public toString() {
-    return `${this.name}-${this.value}`;
+    return `${this.name}="${this.value}"`;
   }
 }
 
@@ -122,9 +130,6 @@ abstract class StatelessWidget extends Widget {
   style(): string {
     return "";
   }
-  script(): string {
-    return "";
-  }
   abstract build(): Widget;
 }
 
@@ -136,5 +141,6 @@ export {
   SingleChildTag,
   StatelessWidget,
   Tag,
-  Widget,
+  Widget
 };
+

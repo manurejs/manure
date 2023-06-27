@@ -1,4 +1,12 @@
-import { SingleChildTag, StatelessWidget, Widget } from "../widget";
+import {
+  Attribute,
+  MultiChildTag,
+  SingleChildTag,
+  StatelessWidget,
+  Tag,
+  Widget,
+} from "../widget";
+import { Text } from "./text";
 
 class Button extends StatelessWidget {
   private child: Widget;
@@ -11,18 +19,36 @@ class Button extends StatelessWidget {
   style(): string {
     return "padding: 5pt;";
   }
-  script(): string {
-    if (this.onClick) {
-      return `
-document.getElementById("${this.getId()}").onclick = () => {
-  alert("Yay!");
-}
-      `;
+  handle(action: string): void {
+    if (action === "click") {
+      this.child = new Text("You clicked me!");
+      this.onClick();
     }
-    return "";
   }
   build(): Widget {
-    return new SingleChildTag("button", { child: this.child });
+    return new MultiChildTag("form", {
+      attributes: [
+        new Attribute("method", "POST"),
+        new Attribute("action", "/"),
+      ],
+      children: [
+        new Tag("input", {
+          attributes: [
+            new Attribute("type", "hidden"),
+            new Attribute("name", "id"),
+            new Attribute("value", this.getId()),
+          ],
+        }),
+        new Tag("input", {
+          attributes: [
+            new Attribute("type", "hidden"),
+            new Attribute("name", "action"),
+            new Attribute("value", "click"),
+          ],
+        }),
+        new SingleChildTag("button", { child: this.child }),
+      ],
+    });
   }
 }
 

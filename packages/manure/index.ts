@@ -5,4 +5,19 @@ import { Text } from "./src/components/text";
 import { post, render } from "./src/framework";
 import { StatelessWidget, Widget } from "./src/widget";
 
-export { Button, Column, Row, StatelessWidget, Text, Widget, post, render };
+interface Post {
+  id: string;
+  action: string;
+}
+
+export {
+  Button,
+  Column,
+  Post,
+  Row,
+  StatelessWidget,
+  Text,
+  Widget,
+  post,
+  render,
+};

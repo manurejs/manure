@@ -22,6 +22,10 @@ class IdManager {
       return `${name}-${this.counts[name] - 1}`;
     }
   }
+
+  public clear() {
+    this.counts = {};
+  }
 }
 
 export { IdManager };

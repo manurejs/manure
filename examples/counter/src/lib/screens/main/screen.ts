@@ -4,9 +4,8 @@ class MainScreen extends StatelessWidget {
   build(): Widget {
     return new Column({
       children: [
-        new Text('Hello World!'),
         new Text('Welcome to ManureJS'),
-        new Text("I'm chientrm"),
+        new Text('This is counter example!'),
         new Row({
           children: [
             new Text('First element'),
