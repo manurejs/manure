@@ -1,16 +1,20 @@
-import { App, render } from 'manure';
-import { MainScreen } from './lib/screens/main/screen';
+import { render } from 'manure';
+import { CounterApp } from './lib/app';
 
 export interface Env {}
 
 export default <ExportedHandler<Env>>{
 	async fetch(request, env) {
-		const app = new App({ home: new MainScreen() }),
-			body = render(app);
-		return new Response(body, {
-			headers: {
-				'Content-Type': 'text/html;charset=UTF-8',
-			},
-		});
+		const app = new CounterApp();
+		if (request.method === 'GET') {
+			const body = render(app);
+			return new Response(body, {
+				headers: {
+					'Content-Type': 'text/html;charset=UTF-8',
+				},
+			});
+		} else if (request.method === 'POST') {
+			request.json();
+		}
 	},
 };

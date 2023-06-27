@@ -1,6 +1,6 @@
-import { Widget } from "./widget";
+import { StatelessWidget } from "./widget";
 
-const render = (widget: Widget): string => {
+const render = (widget: StatelessWidget): string => {
   const tmp = widget.build(),
     element = tmp.createElement(),
     result = element.render();

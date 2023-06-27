@@ -3,12 +3,13 @@ import {
   MultiChildTag,
   Multiline,
   SingleChildTag,
+  StatelessWidget,
   Tag,
   Text,
   Widget,
 } from "../widget";
 
-class App extends Widget {
+class App extends StatelessWidget {
   private home: Widget;
   constructor({ home }: { home: Widget }) {
     super();
