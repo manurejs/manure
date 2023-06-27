@@ -1,4 +1,4 @@
-import { Column, Row, StatelessWidget, Text, Widget } from 'manure';
+import { Button, Column, Row, StatelessWidget, Text, Widget } from 'manure';
 
 class MainScreen extends StatelessWidget {
   build(): Widget {
@@ -13,6 +13,13 @@ class MainScreen extends StatelessWidget {
             new Text('Second element'),
             new Column({
               children: [new Text('Third element'), new Text('Fourth element')],
+            }),
+          ],
+        }),
+        new Row({
+          children: [
+            new Button({
+              child: new Text('Click me!'),
             }),
           ],
         }),
